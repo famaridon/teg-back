@@ -14,7 +14,7 @@ public class WSRoomController {
   @MessageMapping("/events/play")
   @SendTo("/events/update")
   public String play(String message) throws Exception {
-    return "ping";
+    return "pong";
   }
 
 }
