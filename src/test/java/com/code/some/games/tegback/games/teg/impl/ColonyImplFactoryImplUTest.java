@@ -24,6 +24,7 @@ class ColonyImplFactoryImplUTest {
   void createColony() {
     Colony colony = this.factory.create();
     assertNotNull(colony);
+    assertEquals(1, colony.getLevel().intValue(), "Colony start at level 1");
     assertEquals(1, colony.getCulture().intValue(), "Colony start with 1 culture");
     assertEquals(2, colony.getEnergy().intValue(), "Colony start with 2 energies");
     assertEquals(4, colony.getDices().size(), "Colony start with 4 dices");

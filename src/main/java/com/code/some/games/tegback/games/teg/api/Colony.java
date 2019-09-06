@@ -5,11 +5,13 @@ import java.util.List;
 
 public interface Colony {
 
-  public Integer getEnergy();
+  Integer getEnergy();
 
-  public Integer getCulture();
+  Integer getCulture();
 
-  public List<Dice<Action>> getDices();
+  List<Dice<Action>> getDices();
 
-  public List<Ship> getShips();
+  List<Ship> getShips();
+
+  Integer getLevel();
 }

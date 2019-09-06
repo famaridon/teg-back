@@ -1,10 +1,9 @@
-package com.code.some.games.tegback.games.teg;
+package com.code.some.games.tegback.games.teg.impl.beans;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.code.some.games.tegback.games.teg.impl.beans.ColonyImpl;
 import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +14,8 @@ class ColonyImplUTest {
 
   @BeforeEach
   public void setup() {
-    this.colonyImpl = new ColonyImpl(2, 1, new ArrayList<>(), new ArrayList<>());
+    this.colonyImpl = new ColonyImplBuilder().setEnergy(2).setCulture(1).setDices(new ArrayList<>())
+        .setShips(new ArrayList<>()).build();
   }
 
   @Test
