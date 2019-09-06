@@ -3,7 +3,7 @@
 
 ## feature
 
-### Room 
+### Room (PCE)
 
 List room or create a new one.
 
@@ -11,11 +11,11 @@ A player join a open room
 
 Room can start: no more players can join the room.
 
-### TEG game
+### TEG game (QPE)
 
 Teg game turn (can include follow current player action).
 
 
-### TEG Player
+### TEG Player (FAM)
 
 The player galaxy
