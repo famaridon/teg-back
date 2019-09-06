@@ -5,6 +5,7 @@ import java.util.List;
 public interface Dice<T> {
 
   public T roll();
+
   public List<T> list();
 
 }
