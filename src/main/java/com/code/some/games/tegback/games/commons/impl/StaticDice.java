@@ -24,4 +24,9 @@ public class StaticDice<T> implements Dice<T> {
     return faces.get(this.roller.nextInt(this.faces.size()));
   }
 
+  @Override
+  public List<T> list() {
+    return this.faces;
+  }
+
 }
