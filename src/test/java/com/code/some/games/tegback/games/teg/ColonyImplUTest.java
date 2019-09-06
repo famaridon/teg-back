@@ -1,13 +1,15 @@
 package com.code.some.games.tegback.games.teg;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.code.some.games.tegback.games.teg.impl.beans.ColonyImpl;
 import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class ColonyImplTest {
+class ColonyImplUTest {
 
   private ColonyImpl colonyImpl;
 

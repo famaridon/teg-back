@@ -1,12 +1,14 @@
 package com.code.some.games.tegback.games.commons.impl;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-class StaticDiceTest {
+class StaticDiceUTest {
 
   @Test
   void create() {
