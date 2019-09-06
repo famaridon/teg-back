@@ -2,8 +2,8 @@ package com.code.some.games.tegback.games.teg.impl;
 
 import com.code.some.games.tegback.games.commons.Dice;
 import com.code.some.games.tegback.games.commons.impl.StaticDice;
-import com.code.some.games.tegback.games.teg.Action;
-import com.code.some.games.tegback.games.teg.DiceFactory;
+import com.code.some.games.tegback.games.teg.api.Action;
+import com.code.some.games.tegback.games.teg.api.DiceFactory;
 import java.util.Arrays;
 
 public class DiceFactoryImpl implements DiceFactory {

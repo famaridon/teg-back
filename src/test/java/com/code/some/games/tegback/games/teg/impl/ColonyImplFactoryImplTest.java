@@ -2,15 +2,14 @@ package com.code.some.games.tegback.games.teg.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.Mockito.mock;
 
-import com.code.some.games.tegback.games.teg.Colony;
-import com.code.some.games.tegback.games.teg.DiceFactory;
-import com.code.some.games.tegback.games.teg.ShipFactory;
+import com.code.some.games.tegback.games.teg.api.Colony;
+import com.code.some.games.tegback.games.teg.api.DiceFactory;
+import com.code.some.games.tegback.games.teg.api.ShipFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class ColonyFactoryImplTest {
+class ColonyImplFactoryImplTest {
 
   private ColonyFactoryImpl factory;
   private DiceFactory diceFactory = new DiceFactoryImpl();

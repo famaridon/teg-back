@@ -1,14 +1,18 @@
-package com.code.some.games.tegback.games.teg;
+package com.code.some.games.tegback.games.teg.impl.beans;
 
 import com.code.some.games.tegback.games.commons.Dice;
+import com.code.some.games.tegback.games.teg.api.Action;
+import com.code.some.games.tegback.games.teg.api.Colony;
+import com.code.some.games.tegback.games.teg.api.Ship;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Colony {
+public class ColonyImpl implements Colony {
 
   public static final int MAX_DICES = 7;
   public static final int MIN_DICES = 4;
+
   public static final int MIN_SHIPS = 2;
   public static final int MAX_SHIPS = 4;
 
@@ -17,7 +21,7 @@ public class Colony {
   private List<Dice<Action>> dices;
   private List<Ship> ships;
 
-  public Colony(Integer energy, Integer culture,
+  public ColonyImpl(Integer energy, Integer culture,
       List<Dice<Action>> dices, List<Ship> ships) {
     this.energy = energy;
     this.culture = culture;
