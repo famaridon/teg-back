@@ -13,13 +13,13 @@ public class BoundedNumber<T extends Number & Comparable<T>> {
   private T value;
 
   public BoundedNumber(T value, T lowerBound, T upperBound) {
-    this(value, lowerBound, upperBound, "Value should be between {0} and {1}");
+    this(value, lowerBound, upperBound, "Value should be between {0} and {1} but was {2}.");
   }
 
   public BoundedNumber(T value, T lowerBound, T upperBound, String messageFormat) {
     this.lowerBound = lowerBound;
     this.upperBound = upperBound;
-    this.message = MessageFormat.format(notBlank(messageFormat), this.lowerBound, this.upperBound);
+    this.message = notBlank(messageFormat);
     this.update(value);
   }
 
@@ -31,13 +31,17 @@ public class BoundedNumber<T extends Number & Comparable<T>> {
     value = notNull(value);
 
     if (this.lowerBound.compareTo(value) > 0) {
-      throw new IllegalArgumentException(this.message);
+      throw new IllegalArgumentException(getErrorMessage(value));
     }
 
     if (this.upperBound.compareTo(value) < 0) {
-      throw new IllegalArgumentException(this.message);
+      throw new IllegalArgumentException(getErrorMessage(value));
     }
     this.value = notNull(value);
+  }
+
+  private String getErrorMessage(T value) {
+    return MessageFormat.format(this.message, this.upperBound, this.lowerBound, value);
   }
 
 }

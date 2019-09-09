@@ -29,7 +29,7 @@ public class BoundedList<T> implements List<T> {
   public BoundedList(List<T> values, int minSize, int maxSize, String messageFormat) {
     this.minSize = minSize;
     this.maxSize = maxSize;
-    this.message = MessageFormat.format(notBlank(messageFormat), this.minSize, this.maxSize);
+    this.message = notBlank(messageFormat);
     if (values.size() < this.minSize) {
       throw new IllegalArgumentException(this.message);
     }
@@ -37,12 +37,19 @@ public class BoundedList<T> implements List<T> {
     this.addAll(values);
   }
 
-  private boolean isTooLarge(int elementsToAdd) {
-    return this.values.size() + elementsToAdd > this.maxSize;
+  private void checkTooLarge(int elementsToAdd) {
+    if (this.values.size() + elementsToAdd > this.maxSize) {
+      throw new IllegalArgumentException(MessageFormat
+          .format(this.message, this.minSize, this.maxSize, this.values.size() + elementsToAdd));
+    }
+
   }
 
-  private boolean isTooSmall(int elementsToRemove) {
-    return this.values.size() - elementsToRemove < this.minSize;
+  private void checkTooSmall(int elementsToRemove) {
+    if (this.values.size() - elementsToRemove < this.minSize) {
+      throw new IllegalArgumentException(MessageFormat
+          .format(this.message, this.minSize, this.maxSize, this.values.size() - elementsToRemove));
+    }
   }
 
   @Override
@@ -77,17 +84,13 @@ public class BoundedList<T> implements List<T> {
 
   @Override
   public boolean add(T t) {
-    if (this.isTooLarge(1)) {
-      throw new IllegalArgumentException(this.message);
-    }
+    checkTooLarge(1);
     return values.add(t);
   }
 
   @Override
   public boolean remove(Object o) {
-    if (this.isTooSmall(1)) {
-      throw new IllegalArgumentException(this.message);
-    }
+    checkTooSmall(1);
     return values.remove(o);
   }
 
@@ -98,25 +101,19 @@ public class BoundedList<T> implements List<T> {
 
   @Override
   public boolean addAll(Collection<? extends T> c) {
-    if (isTooLarge(c.size())) {
-      throw new IllegalArgumentException(this.message);
-    }
+    checkTooLarge(c.size());
     return values.addAll(c);
   }
 
   @Override
   public boolean addAll(int index, Collection<? extends T> c) {
-    if (isTooLarge(c.size())) {
-      throw new IllegalArgumentException(this.message);
-    }
+    checkTooLarge(c.size());
     return values.addAll(index, c);
   }
 
   @Override
   public boolean removeAll(Collection<?> c) {
-    if (this.isTooSmall(c.size())) {
-      throw new IllegalArgumentException(this.message);
-    }
+    checkTooSmall(c.size());
     return values.removeAll(c);
   }
 
@@ -157,9 +154,7 @@ public class BoundedList<T> implements List<T> {
 
   @Override
   public T remove(int index) {
-    if (this.isTooSmall(1)) {
-      throw new IllegalArgumentException(this.message);
-    }
+    checkTooSmall(1);
     return values.remove(index);
   }
 
