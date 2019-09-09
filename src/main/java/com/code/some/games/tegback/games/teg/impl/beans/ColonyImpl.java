@@ -1,7 +1,6 @@
 package com.code.some.games.tegback.games.teg.impl.beans;
 
-import static org.apache.commons.lang3.Validate.notNull;
-
+import com.code.some.games.tegback.games.commons.BoundedNumber;
 import com.code.some.games.tegback.games.commons.Dice;
 import com.code.some.games.tegback.games.teg.api.Action;
 import com.code.some.games.tegback.games.teg.api.Colony;
@@ -14,6 +13,10 @@ public class ColonyImpl implements Colony {
 
   public static final int MIN_LEVEL = 1;
   public static final int MAX_LEVEL = 6;
+  private static final int MIN_ENERGY = 0;
+  private static final int MAX_ENERGY = 7;
+  private static final int MIN_CULTURE = 0;
+  private static final int MAX_CULTURE = 7;
 
   public static final int MIN_DICES = 4;
   public static final int MAX_DICES = 7;
@@ -21,29 +24,29 @@ public class ColonyImpl implements Colony {
   public static final int MIN_SHIPS = 2;
   public static final int MAX_SHIPS = 4;
 
-  private Integer level;
-  private Integer energy;
-  private Integer culture;
+  private final BoundedNumber<Integer> level;
+  private final BoundedNumber<Integer> energy;
+  private final BoundedNumber<Integer> culture;
   private List<Dice<Action>> dices;
   private List<Ship> ships;
 
   protected ColonyImpl(Integer level, Integer energy, Integer culture,
       List<Dice<Action>> dices, List<Ship> ships) {
-    this.level = this.validLevel(level);
-    this.energy = energy;
-    this.culture = culture;
+    this.level = new BoundedNumber<>(level, MIN_LEVEL, MAX_LEVEL);
+    this.energy = new BoundedNumber<>(energy, MIN_ENERGY, MAX_ENERGY);
+    this.culture = new BoundedNumber<>(culture, MIN_CULTURE, MAX_CULTURE);
     this.dices = new ArrayList<>(dices);
     this.ships = new ArrayList<>(ships);
   }
 
   @Override
   public Integer getEnergy() {
-    return energy;
+    return energy.get();
   }
 
   @Override
   public Integer getCulture() {
-    return culture;
+    return culture.get();
   }
 
   @Override
@@ -58,16 +61,7 @@ public class ColonyImpl implements Colony {
 
   @Override
   public Integer getLevel() {
-    return level;
+    return level.get();
   }
 
-  final Integer validLevel(Integer level) {
-    level = notNull(level);
-
-    if (level < MIN_LEVEL || level > MAX_LEVEL) {
-      throw new IllegalArgumentException("Level bounds are 1 to 6!");
-    }
-
-    return level;
-  }
 }

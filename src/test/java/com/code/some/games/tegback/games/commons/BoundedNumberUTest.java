@@ -42,4 +42,5 @@ class BoundedNumberUTest {
   void upperBoundException() {
     assertThrows(IllegalArgumentException.class, () -> new BoundedNumber<>(101, 0, 100));
   }
+
 }

@@ -45,23 +45,4 @@ class ColonyImplUTest {
         "Dices should not be modifiable");
   }
 
-  @Test
-  public void validLevel() {
-    this.colonyImpl.validLevel(1);
-    this.colonyImpl.validLevel(2);
-    this.colonyImpl.validLevel(3);
-    this.colonyImpl.validLevel(4);
-    this.colonyImpl.validLevel(5);
-    this.colonyImpl.validLevel(6);
-  }
-
-  @Test
-  public void notValidLevel() {
-    assertThrows(NullPointerException.class, () -> this.colonyImpl.validLevel(null));
-    assertThrows(IllegalArgumentException.class, () -> this.colonyImpl.validLevel(0),
-        "Minimum level is 1");
-    assertThrows(IllegalArgumentException.class, () -> this.colonyImpl.validLevel(7),
-        "Maximum level is 6");
-  }
-
 }
