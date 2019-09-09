@@ -16,7 +16,7 @@ class ColonyImplFactoryImplUTest {
   private ShipFactory shipFactory = new ShipFactoryImpl();
 
   @BeforeEach
-  public void setup(){
+  void setup() {
     this.factory = new ColonyFactoryImpl(diceFactory, shipFactory);
   }
 

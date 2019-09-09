@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import java.util.ArrayList;
+import com.code.some.games.tegback.games.teg.impl.ColonyFactoryImpl;
+import com.code.some.games.tegback.games.teg.impl.DiceFactoryImpl;
+import com.code.some.games.tegback.games.teg.impl.ShipFactoryImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,34 +15,29 @@ class ColonyImplUTest {
   private ColonyImpl colonyImpl;
 
   @BeforeEach
-  public void setup() {
-    this.colonyImpl = new ColonyImplBuilder()
-        .setLevel(1)
-        .setEnergy(2)
-        .setCulture(1)
-        .setDices(new ArrayList<>())
-        .setShips(new ArrayList<>())
-        .build();
+  void setup() {
+    this.colonyImpl = (ColonyImpl) new ColonyFactoryImpl(new DiceFactoryImpl(),
+        new ShipFactoryImpl()).create();
   }
 
   @Test
-  public void create() {
+  void create() {
     assertNotNull(this.colonyImpl);
     assertEquals(Integer.valueOf(1), this.colonyImpl.getCulture());
     assertEquals(Integer.valueOf(2), this.colonyImpl.getEnergy());
-    assertEquals(0, this.colonyImpl.getDices().size());
-    assertEquals(0, this.colonyImpl.getShips().size());
+    assertEquals(4, this.colonyImpl.getDices().size());
+    assertEquals(2, this.colonyImpl.getShips().size());
   }
 
   @Test
-  public void dicesIsUnmodifiable() {
+  void dicesIsUnmodifiable() {
     assertThrows(UnsupportedOperationException.class, () -> this.colonyImpl.getDices().add(null),
         "Dices should not be modifiable");
 
   }
 
   @Test
-  public void shipsIsUnmodifiable() {
+  void shipsIsUnmodifiable() {
     assertThrows(UnsupportedOperationException.class, () -> this.colonyImpl.getShips().add(null),
         "Dices should not be modifiable");
   }
