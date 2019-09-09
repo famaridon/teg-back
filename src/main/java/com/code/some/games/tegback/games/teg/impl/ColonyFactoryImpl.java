@@ -18,7 +18,7 @@ public class ColonyFactoryImpl implements ColonyFactory {
 
   public static final int START_ENERGY = 2;
   public static final int START_CULTURE = 1;
-  public static final int START_LEVEL = 0;
+  public static final int START_LEVEL = 1;
   private final DiceFactory diceFactory;
   private final ShipFactory shipFactory;
 

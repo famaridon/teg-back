@@ -1,5 +1,7 @@
 package com.code.some.games.tegback.games.teg.impl.beans;
 
+import static org.apache.commons.lang3.Validate.notNull;
+
 import com.code.some.games.tegback.games.commons.Dice;
 import com.code.some.games.tegback.games.teg.api.Action;
 import com.code.some.games.tegback.games.teg.api.Colony;
@@ -10,8 +12,11 @@ import java.util.List;
 
 public class ColonyImpl implements Colony {
 
-  public static final int MAX_DICES = 7;
+  public static final int MIN_LEVEL = 1;
+  public static final int MAX_LEVEL = 6;
+
   public static final int MIN_DICES = 4;
+  public static final int MAX_DICES = 7;
 
   public static final int MIN_SHIPS = 2;
   public static final int MAX_SHIPS = 4;
@@ -24,7 +29,7 @@ public class ColonyImpl implements Colony {
 
   protected ColonyImpl(Integer level, Integer energy, Integer culture,
       List<Dice<Action>> dices, List<Ship> ships) {
-    this.level = level;
+    this.level = this.validLevel(level);
     this.energy = energy;
     this.culture = culture;
     this.dices = new ArrayList<>(dices);
@@ -53,6 +58,16 @@ public class ColonyImpl implements Colony {
 
   @Override
   public Integer getLevel() {
+    return level;
+  }
+
+  final Integer validLevel(Integer level) {
+    level = notNull(level);
+
+    if (level < MIN_LEVEL || level > MAX_LEVEL) {
+      throw new IllegalArgumentException("Level bounds are 1 to 6!");
+    }
+
     return level;
   }
 }
