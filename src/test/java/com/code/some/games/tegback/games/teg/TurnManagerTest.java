@@ -1,10 +1,9 @@
 package com.code.some.games.tegback.games.teg;
 
+import com.code.some.games.tegback.games.teg.rounds.TurnManager;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -17,7 +16,7 @@ public class TurnManagerTest {
 		players.add(new TurnPlayer(98, "PCE"));
 		players.add(new TurnPlayer(32, "NHE"));
 		
-		new TurnManager(players);
+		new TurnManager(players, null);
 	}
 	
 	@Test
@@ -28,8 +27,8 @@ public class TurnManagerTest {
 		players.add(new TurnPlayer(98, "PCE"));
 		players.add(new TurnPlayer(32, "NHE"));
 		
-		TurnManager turnManager = new TurnManager(players);
-		TurnPlayer currentPlayer = turnManager.getCurrentPlayer();
+		TurnManager turnManager = new TurnManager(players, null);
+		TurnPlayer currentPlayer = turnManager.getActivePlayer();
 		
 		assertEquals(currentPlayer.getId(),45);
 	}
@@ -42,9 +41,9 @@ public class TurnManagerTest {
 		players.add(new TurnPlayer(98, "PCE"));
 		players.add(new TurnPlayer(32, "NHE"));
 		
-		TurnManager turnManager = new TurnManager(players);
+		TurnManager turnManager = new TurnManager(players, null);
 		turnManager.endTurn();
-		TurnPlayer currentPlayer = turnManager.getCurrentPlayer();
+		TurnPlayer currentPlayer = turnManager.getActivePlayer();
 		
 		assertEquals(currentPlayer.getId(),12);
 	}
@@ -57,12 +56,12 @@ public class TurnManagerTest {
 		players.add(new TurnPlayer(98, "PCE"));
 		players.add(new TurnPlayer(32, "NHE"));
 		
-		TurnManager turnManager = new TurnManager(players);
+		TurnManager turnManager = new TurnManager(players, null);
 		turnManager.endTurn();
 		turnManager.endTurn();
 		turnManager.endTurn();
 		turnManager.endTurn();
-		TurnPlayer currentPlayer = turnManager.getCurrentPlayer();
+		TurnPlayer currentPlayer = turnManager.getActivePlayer();
 		
 		assertEquals(currentPlayer.getId(),45);
 	}

@@ -1,15 +1,16 @@
-package com.code.some.games.tegback.games.teg.command;
+package com.code.some.games.tegback.games.teg.command.receiver;
 
-import com.code.some.games.tegback.games.teg.rounds.CircularPlayerSequenceHandler;
-import com.code.some.games.tegback.games.teg.rounds.TurnPlayer;
-import com.code.some.games.tegback.games.teg.rounds.base.PlayerSequenceHandler;
+import com.code.some.games.tegback.games.commons.impl.CircularPlayerSequenceHandler;
+import com.code.some.games.tegback.games.teg.BoardState;
+import com.code.some.games.tegback.games.teg.TurnPlayer;
+import com.code.some.games.tegback.games.commons.PlayerSequenceHandler;
 
 import java.util.Collection;
 import java.util.LinkedList;
 
 public class TEGBoard {
 	
-	private Object boardState;
+	private BoardState boardState;
 	
 	private PlayerSequenceHandler playerSequenceHandler;
 	
@@ -37,6 +38,7 @@ public class TEGBoard {
 	
 	public void discardDices(){ //get current player - modify its state
 		playerSequenceHandler.nextPlayer();
+		boardState.setCurrentPlayer(playerSequenceHandler.getActivePlayer());
 	}
 	
 	public void followAction(){} //get some inactive player - modify its state

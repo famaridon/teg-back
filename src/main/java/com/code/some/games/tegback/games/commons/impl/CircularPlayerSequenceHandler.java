@@ -1,8 +1,8 @@
-package com.code.some.games.tegback.games.teg.rounds;
+package com.code.some.games.tegback.games.commons.impl;
 
-import com.code.some.games.tegback.games.teg.rounds.base.PlayerSequenceHandler;
+import com.code.some.games.tegback.games.commons.PlayerSequenceHandler;
+import com.code.some.games.tegback.games.teg.TurnPlayer;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;

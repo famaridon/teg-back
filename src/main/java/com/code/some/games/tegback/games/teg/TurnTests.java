@@ -1,7 +1,6 @@
-package com.code.some.games.tegback.games.teg.rounds.fakeData;
+package com.code.some.games.tegback.games.teg;
 
-import com.code.some.games.tegback.games.teg.command.TEGBoard;
-import com.code.some.games.tegback.games.teg.rounds.TurnPlayer;
+import com.code.some.games.tegback.games.teg.command.receiver.TEGBoard;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,7 +10,7 @@ import java.util.LinkedList;
 public class TurnTests {
 
 	@Bean
-	public TEGBoard turnManager() {
+	public TEGBoard board() {
 		return new TEGBoard(getFakePlayers());
 	}
 	

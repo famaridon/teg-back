@@ -1,38 +1,29 @@
 package com.code.some.games.tegback.rest.v1;
 
-import com.code.some.games.tegback.games.teg.TurnManager;
-import com.code.some.games.tegback.games.teg.TurnPlayer;
+import com.code.some.games.tegback.games.teg.Action;
+import com.code.some.games.tegback.games.teg.ConcreteCommandFactory;
+import com.code.some.games.tegback.games.teg.command.base.Command;
+import com.code.some.games.tegback.games.teg.command.receiver.TEGBoard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class WSRoomController {
   
   @Autowired
   private ApplicationContext appContext;
-
+  
   @MessageMapping("/events/play")
-  @SendTo("/events/update")
+  @SendTo("/events/update/action")
   public String play(String message) throws Exception {
-    return "pong";
+    TEGBoard board = (TEGBoard)appContext.getBean("board");
+    Command selectedCommand = ConcreteCommandFactory.getCommand(Action.ACTIVATE_COLONY, board);
+    
+    selectedCommand.execute();
+    
+    return null;
   }
-  
-  @MessageMapping("/events/endTurn")
-  @SendTo("/events/update")
-  public String endTurn(String message) throws Exception {
-    TurnManager turnManager = (TurnManager)appContext.getBean("turnManager");
-    turnManager.endTurn();
-    TurnPlayer currentPlayer = turnManager.getCurrentPlayer();
-  
-    return "next player : " + currentPlayer.getId();
-  }
-  
-
 }

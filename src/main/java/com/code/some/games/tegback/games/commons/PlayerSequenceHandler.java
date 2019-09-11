@@ -1,6 +1,6 @@
-package com.code.some.games.tegback.games.teg.rounds.base;
+package com.code.some.games.tegback.games.commons;
 
-import com.code.some.games.tegback.games.teg.rounds.TurnPlayer;
+import com.code.some.games.tegback.games.teg.TurnPlayer;
 
 import java.util.List;
 
