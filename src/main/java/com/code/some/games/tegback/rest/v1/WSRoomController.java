@@ -1,6 +1,6 @@
 package com.code.some.games.tegback.rest.v1;
 
-import com.code.some.games.tegback.games.teg.ConcreteCommandFactory;
+import com.code.some.games.tegback.games.teg.CommandFactory;
 import com.code.some.games.tegback.games.teg.api.Action;
 import com.code.some.games.tegback.games.teg.command.base.Command;
 import com.code.some.games.tegback.games.teg.command.receiver.TEGBoard;
@@ -20,7 +20,7 @@ public class WSRoomController {
   @SendTo("/events/update/action")
   public String play(String message) throws Exception {
     TEGBoard board = (TEGBoard)appContext.getBean("board");
-    Command selectedCommand = ConcreteCommandFactory.getCommand(Action.ACTIVATE_COLONY, board);
+    Command selectedCommand = CommandFactory.getCommand(Action.ACTIVATE_COLONY, board);
     
     selectedCommand.execute();
     
