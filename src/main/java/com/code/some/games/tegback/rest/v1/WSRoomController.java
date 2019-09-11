@@ -1,7 +1,7 @@
 package com.code.some.games.tegback.rest.v1;
 
-import com.code.some.games.tegback.games.teg.Action;
 import com.code.some.games.tegback.games.teg.ConcreteCommandFactory;
+import com.code.some.games.tegback.games.teg.api.Action;
 import com.code.some.games.tegback.games.teg.command.base.Command;
 import com.code.some.games.tegback.games.teg.command.receiver.TEGBoard;
 import org.springframework.beans.factory.annotation.Autowired;
