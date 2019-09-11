@@ -1,7 +1,7 @@
 package com.code.some.games.tegback.games.commons.impl;
 
 import com.code.some.games.tegback.games.commons.PlayerSequenceHandler;
-import com.code.some.games.tegback.games.teg.TurnPlayer;
+import com.code.some.games.tegback.games.teg.impl.beans.TurnPlayer;
 
 import java.util.Iterator;
 import java.util.LinkedList;

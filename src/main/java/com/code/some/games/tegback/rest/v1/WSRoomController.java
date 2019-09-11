@@ -1,9 +1,9 @@
 package com.code.some.games.tegback.rest.v1;
 
-import com.code.some.games.tegback.games.teg.CommandFactory;
+import com.code.some.games.tegback.games.teg.impl.CommandFactory;
 import com.code.some.games.tegback.games.teg.api.Action;
-import com.code.some.games.tegback.games.teg.command.base.Command;
-import com.code.some.games.tegback.games.teg.command.receiver.TEGBoard;
+import com.code.some.games.tegback.games.teg.api.Command;
+import com.code.some.games.tegback.games.teg.impl.command.receiver.TEGBoard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.messaging.handler.annotation.MessageMapping;

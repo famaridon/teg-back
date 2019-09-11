@@ -1,8 +1,8 @@
-package com.code.some.games.tegback.games.teg.command.receiver;
+package com.code.some.games.tegback.games.teg.impl.command.receiver;
 
 import com.code.some.games.tegback.games.commons.impl.CircularPlayerSequenceHandler;
-import com.code.some.games.tegback.games.teg.BoardState;
-import com.code.some.games.tegback.games.teg.TurnPlayer;
+import com.code.some.games.tegback.games.teg.impl.beans.BoardState;
+import com.code.some.games.tegback.games.teg.impl.beans.TurnPlayer;
 import com.code.some.games.tegback.games.commons.PlayerSequenceHandler;
 
 import java.util.Collection;

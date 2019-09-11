@@ -1,7 +1,7 @@
-package com.code.some.games.tegback.games.teg.command;
+package com.code.some.games.tegback.games.teg.impl.command;
 
-import com.code.some.games.tegback.games.teg.command.base.Command;
-import com.code.some.games.tegback.games.teg.command.receiver.TEGBoard;
+import com.code.some.games.tegback.games.teg.api.Command;
+import com.code.some.games.tegback.games.teg.impl.command.receiver.TEGBoard;
 
 public class MoveShip implements Command {
 	protected TEGBoard board;
