@@ -1,4 +1,4 @@
-package com.code.some.games.tegback.games.teg;
+package com.code.some.games.tegback.games.teg.rounds;
 
 public class TurnPlayer {
 	
