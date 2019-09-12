@@ -34,8 +34,8 @@ public class ColonyImpl implements Colony {
   private final BoundedNumber<Integer> level;
   private final BoundedNumber<Integer> energy;
   private final BoundedNumber<Integer> culture;
-  private List<Dice<Action>> dices;
-  private List<Ship> ships;
+  private final List<Dice<Action>> dices;
+  private final List<Ship> ships;
 
   ColonyImpl(Integer level, Integer energy, Integer culture,
       List<Dice<Action>> dices, List<Ship> ships) {
