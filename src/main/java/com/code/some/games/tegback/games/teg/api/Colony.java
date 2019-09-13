@@ -14,4 +14,10 @@ public interface Colony {
   List<Ship> getShips();
 
   Integer getLevel();
+  
+  void increaseEnergy();
+  
+  void increaseCulture();
+  
+  Ship getShip(int shipId);
 }

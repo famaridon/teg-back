@@ -1,17 +1,20 @@
 package com.code.some.games.tegback.games.teg.impl.beans;
 
+import com.code.some.games.tegback.games.teg.api.Colony;
+import com.code.some.games.tegback.games.teg.api.Planet;
+
 public class BoardState {
 	
 	public BoardState() {}
 	
-	private TurnPlayer currentPlayer;
+	private Colony currentPlayer;
 	
 	/**
 	 * get {@link BoardState#currentPlayer} property
 	 *
 	 * @return get the currentPlayer property
 	 **/
-	public TurnPlayer getCurrentPlayer() {
+	public Colony getCurrentPlayer() {
 		return currentPlayer;
 	}
 	
@@ -20,9 +23,16 @@ public class BoardState {
 	 *
 	 * @param currentPlayer set the currentPlayer property
 	 **/
-	public BoardState setCurrentPlayer(TurnPlayer currentPlayer) {
+	public BoardState setCurrentPlayer(Colony currentPlayer) {
 		this.currentPlayer = currentPlayer;
 		return this;
 	}
 	
+	public Colony getPlayerColony(Colony colony) {
+		return null;
+	}
+	
+	public Planet getPlantet(int planetId) {
+		return null;
+	}
 }
