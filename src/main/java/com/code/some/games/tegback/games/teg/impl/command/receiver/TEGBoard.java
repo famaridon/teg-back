@@ -6,9 +6,7 @@ import com.code.some.games.tegback.games.teg.api.Planet;
 import com.code.some.games.tegback.games.teg.api.PlanetType;
 import com.code.some.games.tegback.games.teg.api.Ship;
 import com.code.some.games.tegback.games.teg.impl.beans.BoardState;
-import com.code.some.games.tegback.games.teg.impl.beans.TurnPlayer;
 import com.code.some.games.tegback.games.commons.PlayerSequenceHandler;
-import org.springframework.lang.NonNull;
 
 import java.util.Collection;
 import java.util.LinkedList;

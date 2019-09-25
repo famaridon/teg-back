@@ -70,5 +70,18 @@ public class ColonyImpl implements Colony {
   public Integer getLevel() {
     return level.get();
   }
-
+  
+  @Override
+  public void increaseEnergy(long energyToHarvest) {
+  }
+  
+  @Override
+  public void increaseCulture(long cultureToHarvest) {
+  }
+  
+  @Override
+  public Ship getShip(int shipId) {
+    return null;
+  }
+  
 }
