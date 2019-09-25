@@ -24,21 +24,25 @@ public class TEGBoard {
 		this.boardState = boardState;
 	}
 	
-	public void moveShip(int shipId, int planetId){
+	public Ship moveShip(int shipId, int planetId){
 		Colony currentPlayer = boardState.getCurrentPlayer();
 		Ship shipToMove = currentPlayer.getShip(shipId);
 		Planet planet = boardState.getPlantet(planetId);
 		shipToMove.travel(planet);
+		
+		return shipToMove;
 	}
 	
 	public void harvestEnergy(){
 		Colony currentPlayer = boardState.getCurrentPlayer();
-		currentPlayer.increaseEnergy();
+		long energyToHarvest = currentPlayer.getShips().stream().filter(Ship::canHarvestEnergy).count();
+		currentPlayer.increaseEnergy(energyToHarvest);
 	} //get current player - modify its state
 	
-	public void harvestCulture(Colony playerColony){
+	public void harvestCulture(){
 		Colony currentPlayer = boardState.getCurrentPlayer();
-		currentPlayer.increaseCulture();
+		long cultureToHarvest = currentPlayer.getShips().stream().filter(Ship::canHarvestCulture).count();
+		currentPlayer.increaseCulture(cultureToHarvest);
 	} //get current player - modify its state
 	
 	public void advanceDiplomacy(int shipId){

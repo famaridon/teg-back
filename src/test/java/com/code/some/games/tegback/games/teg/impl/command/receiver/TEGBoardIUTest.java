@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -22,16 +23,14 @@ public class TEGBoardIUTest {
 		players.add(new TurnPlayer(1, "QPE"));
 		players.add(new TurnPlayer(2, "FAM"));
 		
-		this.board =  new TEGBoard(players, new BoardState());
+		this.board =  new TEGBoard(players, new BoardState()); //Définir un boardState avec des valeurs
 	}
 	
 	@Test
 	void moveShip(){
-		Ship ship = mock(Ship.class);
-		Planet planet = null;
-		board.moveShip(1, 1);
+		Ship ship = board.moveShip(1, 1);
 		
-		verify(ship).travel(planet);
+		assertEquals(ship.getPlanet().getId(), 1);
 	}
 	
 	@Test

@@ -15,9 +15,9 @@ public interface Colony {
 
   Integer getLevel();
   
-  void increaseEnergy();
+  void increaseEnergy(long energyToHarvest);
   
-  void increaseCulture();
+  void increaseCulture(long cultureToHarvest);
   
   Ship getShip(int shipId);
 }
