@@ -33,29 +33,47 @@ public class TegGameController {
   @GetMapping(path = "rooms")
   public String getRooms(){
     Map<Integer, Room> rooms = roomFactory.getRooms();
-    String roomsName = null;
+    String roomsJSon = null;
     
     try {
       ObjectMapper mapper = new ObjectMapper();
-      roomsName = mapper.writeValueAsString(rooms.values());
+      roomsJSon = mapper.writeValueAsString(rooms.values());
     }
     catch (JsonProcessingException e) {
       // TODO : Add message
     }
     
-    return  roomsName;
+    return  roomsJSon;
   }
   
   @PostMapping(path = "room")
   public String createRoom(@RequestParam(value="roomName") String roomName){
     Room room = roomFactory.create(roomName);
-    return "{\"result\":\"" + room.getId() + "\"}";
+    String roomJSon = null;
+  
+    try {
+      ObjectMapper mapper = new ObjectMapper();
+      roomJSon = mapper.writeValueAsString(room);
+    }
+    catch (JsonProcessingException e) {
+      // TODO : Add message
+    }
+    return roomJSon;
   }
   
   @GetMapping(path = "room/{roomId}")
   public String getRoom(@PathVariable int roomId){
     Room room = roomFactory.getRoom(roomId);
-    return "{\"result\":\"" + room.getName() + "\"}";
+    String roomJSon = null;
+  
+    try {
+      ObjectMapper mapper = new ObjectMapper();
+      roomJSon = mapper.writeValueAsString(room);
+    }
+    catch (JsonProcessingException e) {
+      // TODO : Add message
+    }
+    return roomJSon;
   }
 
 }
